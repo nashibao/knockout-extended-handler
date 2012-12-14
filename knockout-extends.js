@@ -4,6 +4,9 @@ var _this = this;
 ko.bindingHandlers.href = {
   init: function(element, valueAccessor) {
     var _this = this;
+    $(element).css({
+      "cursor": "pointer"
+    });
     return $(element).click(function() {
       return document.location = valueAccessor();
     });
