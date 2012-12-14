@@ -41,6 +41,10 @@
         <p>knockout風に書き直すと、次のような形になってhtmlにそのまま書ける．</p>
 
         <pre><code>data-bind="hoge :{option: value}"</code></pre>
+        
+        <p>その2:</p>
+        <p>カスタムattributeのようなものがhtml単体だと定義できない．</p>
+        <p>普通のpタグにhref生やしたり、highlightとか合って良さそうだけど、ない時にカスタムattributeが欲しくなるけど、標準のHTMLにはない(?)</p>
         <hr>
         <h3>使い方</h3>
 
@@ -49,9 +53,6 @@ data-bind="tooltip:{title: 'test tooltip'}"
 data-bind="datepicker:{}"
 data-bind="highlight:'t,a'"</code></pre>
         <hr>
-        <p>その2:</p>
-        <p>カスタムattributeのようなものがhtml単体だと定義できない．</p>
-        <p>普通のpタグにhref生やしたり、highlightとか合って良さそうだけど、ない時にカスタムattributeが欲しくなるけど、標準のHTMLにはない(?)</p>
         <h3>例</h3>
         <h5 data-bind="href:'http://www.google.com'">href</h5>
         <div>
