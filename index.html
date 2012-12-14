@@ -1,15 +1,16 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <title>Knockout-extended-handler by nashibao</title>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>Knockout-extended-handler by nashibao</title>
 
-    <link rel="stylesheet" href="stylesheets/styles.css">
-    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-responsive.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-responsive.css">
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
@@ -30,17 +31,41 @@
         </ul>
       </header>
       <section>
-        <h3>リンク機能をすべてのタグに.</h3>
+        <h3>そのこころは？</h3>
+        <p>viewで簡潔するところはviewで簡潔したい．</p>
+        <p>jqueryもbootstrap-jsも次のような形が多い．</p>
+        <pre><code>$('#id').hoge({option: value})</code></pre>
 
-<p>attributeに次の用に足す</p>
+        <p>optionが静的であってもscript内に書く必要があって気持ち悪い．</p>
+        <p>knockout風に書き直すと、次のような形になってhtmlにそのまま書ける．</p>
 
-<pre><code>
-  data-bind="href:'http://www.google.com'"
-</code></pre>
+        <pre><code>data-bind="hoge :{option: value}"</code></pre>
+        <hr>
+        <h3>使い方</h3>
 
-<p>例:</p>
-<h5 data-bind="href:'http://www.google.com'">h5 tagにhref</h5>
-
+        <pre><code>data-bind="href:'http://www.google.com'"
+data-bind="tooltip:{title: 'test tooltip'}"
+data-bind="datepicker:{}"
+data-bind="highlight:'t,a'"</code></pre>
+        <hr>
+        <h3>例</h3>
+        <h5 data-bind="href:'http://www.google.com'">href</h5>
+        <div>
+          <span data-bind="tooltip:{title: 'test tooltip'}">tooltip</span>
+        </div>
+        <div>
+          <span data-bind="popover:{title: 'test popover', content: 'うんたらかんたら'}">popover</span>
+        </div>
+        <div>
+          <input type="text" data-bind="datepicker:{}">
+        </div>
+        <div>
+          <span type="text" data-bind="highlight:'t,a'">adfhapoidsifhqrvnaeofdjna;sfjas;dhjfas;dtaa</span>
+        </div>
+        <hr>
+        <h3>拡張方法</h3>
+        <p>たとえばjqueryのautocompleteを加えたいなど．</p>
+        <pre><code>jquery_extenders = ['datepicker', 'autocomplete']</code></pre>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/nashibao">nashibao</a></p>
@@ -50,14 +75,15 @@
 
 
     <script type="text/javascript", src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript", src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <script src="lib/scale.fix.js"></script>
     <script src="lib/bootstrap/js/bootstrap.js"></script>
     <script src="lib/knockout/knockout-latest.debug.js"></script>
     <script src="knockout-extends.js"></script>
     <script type="text/javascript">
-      function ViewModel(){};
-      ko.applyBindings(new ViewModel());
+    function ViewModel(){};
+    ko.applyBindings(new ViewModel());
     </script>
     
   </body>
-</html>
+  </html>
