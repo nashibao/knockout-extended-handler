@@ -1,4 +1,4 @@
-knockout-extends
+knockout-extended-handler
 ================
 
 knockout extend library
