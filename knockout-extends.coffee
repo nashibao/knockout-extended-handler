@@ -2,6 +2,7 @@
 # jump handler
 ko.bindingHandlers.href = {
   init: (element, valueAccessor) ->
+    $(element).css("cursor": "pointer");
     $(element).click ()=>
       document.location = valueAccessor()
 }
