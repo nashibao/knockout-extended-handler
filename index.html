@@ -31,20 +31,16 @@
         </ul>
       </header>
       <section>
-        <h3>そのこころは？</h3>
-        <p>その１:</p>
-        <p>viewで簡潔するところはviewで簡潔したい．</p>
-        <p>jqueryもbootstrap-jsも次のような形が多い．</p>
+        <h3>Knockout-extended-handlerとは</h3>
+        <p>knockout-jsではDOMに関わる部分は、templateに書くスタイルになっています．</p>
+        <p>ところが、jquery uiやbootstrap-jsでは、次のような形でDOMを拡張します．</p>
         <pre><code>$('#id').hoge({option: value})</code></pre>
 
-        <p>optionが静的であってもscript内に書く必要があって気持ち悪い．</p>
-        <p>knockout風に書き直すと、次のような形になってhtmlにそのまま書ける．</p>
-
+        <p>Knockout-extended-handlerはこれらのDOM拡張をdata-bind属性内におさめることで、template内に収めようとする小さなライブラリです．</p>
+        <p>例えば、上の拡張であれば、</p>
         <pre><code>data-bind="hoge :{option: value}"</code></pre>
-        
-        <p>その2:</p>
-        <p>カスタムattributeのようなものがhtml単体だと定義できない．</p>
-        <p>普通のpタグにhref生やしたり、highlightとか合って良さそうだけど、ない時にカスタムattributeが欲しくなるけど、標準のHTMLにはない(?)</p>
+        <p>となります．</p>
+        <p>補足：jquery uiやbootstrap-js以外にも、普通のpタグにhrefを生やしたり、highlightなど独自のものもいくつか追加しています．</p>
         <hr>
         <h3>使い方</h3>
 
@@ -69,7 +65,7 @@ data-bind="highlight:'t,a'"</code></pre>
         </div>
         <hr>
         <h3>拡張方法</h3>
-        <p>たとえばjqueryのautocompleteを加えたいなど．</p>
+        <p>たとえばjqueryのautocompleteを加えたいなどは以下のようにして下さい．</p>
         <pre><code>jquery_extenders = ['datepicker', 'autocomplete']</code></pre>
       </section>
       <footer>

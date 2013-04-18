@@ -1,4 +1,1 @@
-knockout-extended-handler
-================
-
-knockout extend library
+http://nashibao.github.io/knockout-extended-handler/
