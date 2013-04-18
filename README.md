@@ -1,1 +1,1 @@
-https://github.com/nashibao/knockout-extended-handler
+http://nashibao.github.io/knockout-extended-handler/
