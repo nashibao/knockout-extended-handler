@@ -32,6 +32,8 @@
     <script src="vendor/knockout/build/output/knockout-latest.debug.js"></script>
     <!-- extended handler -->
     <script src="knockout-extends.js"></script>
+    <!-- plugins -->
+    <script src="knockout-plugins.js"></script>
 
 
     <script src="lib/scale.fix.js"></script>
@@ -59,16 +61,18 @@
         </ul>
       </header>
       <section>
-        <h3>Knockout-extended-handlerとは</h3>
-        <p>knockout-jsではDOMに関わる部分は、templateに書くスタイルになっています．</p>
-        <p>ところが、jquery uiやbootstrap-jsでは、次のような形でDOMを拡張します．</p>
+        <h2>ABOUT</h2>
+        <p>Common JS Plugins(like jquery-ui, bootstrap-js) are written in script code block.</p>
+        <p>Knockout-extended-handler makes these plugins to be written in html block.</p>
+        <p>--before.--</p>
         <pre><code>$('#id').hoge({option: value})</code></pre>
 
-        <p>Knockout-extended-handlerはこれらのDOM拡張をdata-bind属性内に書くことで、template内に収めようとする小さなライブラリです．</p>
-        <p>例えば、上の拡張であれば、</p>
+        <p>--after.--</p>
         <pre><code>data-bind="ext:{hoge :{option: value}}"</code></pre>
-        <p>となります．</p>
         <hr>
+        <h2>A CASE</h2>
+        <p>Knockout-extended-handler can be used for jquery-ui style plugins(introduced above) without additional settings.</p>
+        <p>for exam...</p>
         <h3>bootstrap-js</h3>
         <pre><code>data-bind="ext:{tooltip:{title: 'title'}}"
 data-bind="ext:{popover:{title: 'title', content: 'content'}}"</code></pre>
@@ -83,20 +87,20 @@ data-bind="ext:{popover:{title: 'title', content: 'content'}}"</code></pre>
         <div>
           <input type="text" data-bind="ext:{datepicker:{}}">
         </div>
-        <h3>pickadate</h3>
+        <h3><a href="http://amsul.ca/pickadate.js/">pickadate</a></h3>
         <pre><code>data-bind="ext:{pickadate:{}}"</code></pre>
         <div>
           <input type="text" data-bind="ext:{pickadate:{}}">
         </div>
-        <h3>bootstrap-select</h3>
+        <h3><a href="https://github.com/silviomoreto/bootstrap-select">bootstrap-select</a></h3>
         <pre><code>data-bind="ext:{selectpicker:{}}"</code></pre>
         <div>
           <select data-bind="ext:{selectpicker:{}}, options: [1,2,3]">
           </select>
         </div>
         <hr>
-        <h3>補足</h3>
-        <p>hrefとhightlightを含んだ、knockout-plugins.jsも入っています．</p>
+        <h3>knockout-plugins.js</h3>
+        <p>this is present for you. href+truncate+hightlight plugins in it.</p>
         <pre><code>data-bind="highlight:'t,a'"
 data-bind="href:'http://www.google.com'"</code></pre>
         <h5 data-bind="href:'http://www.google.com'">href</h5>
