@@ -1,0 +1,11 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "*",
+    "pickadate": "*",
+    "bootstrap": "*",
+    "bootstrap-select": "*",
+    "knockout": "*"
+  }
+}
