@@ -29,41 +29,52 @@ ko.bindingHandlers.highlight = update: (element, valueAccessor, allBindingsAcces
   $(element).html(text)
 
 # jquery plugins extends
-do ->
-  jquery_extenders = ['datepicker']
-  for ext in jquery_extenders
-    ko.bindingHandlers[ext] = do (ext) ->
-      {
-        init: (element, valueAccessor) ->
-          options = ko.toJS(valueAccessor()) || {}
-          try
-            $(element)[ext](options)
-          catch e
-            utils.log e
-      }
-  null
+# do ->
+#   jquery_extenders = ['datepicker']
+#   for ext in jquery_extenders
+#     ko.bindingHandlers[ext] = do (ext) ->
+#       {
+#         init: (element, valueAccessor) ->
+#           options = ko.toJS(valueAccessor()) || {}
+#           try
+#             $(element)[ext](options)
+#           catch e
+#             utils.log e
+#       }
+#   null
 
 # bootstrap extends
-do ->
-  for ext in ['tooltip', 'popover']
-    ko.bindingHandlers[ext] = do(ext) ->
-      {
-        init: (element, valueAccessor, allBindingsAccessor, viewModel) ->
-          try
-            options = valueAccessor()
-            options?.trigger ?= 'manual'
-            if options?.trigger is 'manual'
-              $(element)[ext](options)
-              $(element).click ->
-                $(@)[ext]('hide')
-              .mouseenter ->
-                $(@)[ext]('show')
-              .mouseleave ->
-                $(@)[ext]('hide')
-          catch e
-            utils.log e
-      }
-  null
+# do ->
+#   for ext in ['tooltip', 'popover']
+#     ko.bindingHandlers[ext] = do(ext) ->
+#       {
+#         init: (element, valueAccessor, allBindingsAccessor, viewModel) ->
+#           try
+#             options = valueAccessor()
+#             options?.trigger ?= 'manual'
+#             if options?.trigger is 'manual'
+#               $(element)[ext](options)
+#               $(element).click ->
+#                 $(@)[ext]('hide')
+#               .mouseenter ->
+#                 $(@)[ext]('show')
+#               .mouseleave ->
+#                 $(@)[ext]('hide')
+#           catch e
+#             utils.log e
+#       }
+#   null
+
+ko.bindingHandlers["ext"] = {
+  init: (element, valueAccessor) ->
+    options = ko.toJS(valueAccessor()) || {}
+    for name of options
+      _options = options[name]
+      try
+        $(element)[name](_options)
+      catch e
+        utils.log e
+}
 
 # stop binding handler
 # http://www.knockmeout.net/2012/05/quick-tip-skip-binding.html
