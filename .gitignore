@@ -1,3 +1,4 @@
 *.DS_Store
 /knockout-extended-handler.sublime-workspace
-/knockout-extended-handler.sublime-project
+*.sublime-*
+/vendor/
