@@ -38,35 +38,31 @@
 
         <p>Knockout-extended-handlerはこれらのDOM拡張をdata-bind属性内に書くことで、template内に収めようとする小さなライブラリです．</p>
         <p>例えば、上の拡張であれば、</p>
-        <pre><code>data-bind="hoge :{option: value}"</code></pre>
+        <pre><code>data-bind="ext:{hoge :{option: value}}"</code></pre>
         <p>となります．</p>
-        <p>補足：jquery uiやbootstrap-js以外にも、普通のpタグにhrefを生やしたり、highlightなど独自のものもいくつか追加しています．</p>
-        <hr>
-        <h3>使い方</h3>
-
-        <pre><code>data-bind="href:'http://www.google.com'"
-data-bind="tooltip:{title: 'test tooltip'}"
-data-bind="datepicker:{}"
-data-bind="highlight:'t,a'"</code></pre>
         <hr>
         <h3>例</h3>
+        <pre><code>data-bind="ext:{tooltip:{title: 'title'}}"
+data-bind="ext:{popover:{title: 'title', content: 'content'}}"
+data-bind="ext:{datepicker:{}}"</code></pre>
+        <div>
+          <span data-bind="ext:{tooltip:{title: 'title'}}">tooltip</span>
+        </div>
+        <div>
+          <span data-bind="ext:{popover:{title: 'title', content: 'content'}}">popover</span>
+        </div>
+        <div>
+          <input type="text" data-bind="ext:{datepicker:{}}">
+        </div>
+        <hr>
+        <h3>補足</h3>
+        <p>hrefとhightlightを含んだ、knockout-plugins.jsも入っています．</p>
+        <pre><code>data-bind="highlight:'t,a'"
+data-bind="href:'http://www.google.com'"</code></pre>
         <h5 data-bind="href:'http://www.google.com'">href</h5>
-        <div>
-          <span data-bind="tooltip:{title: 'test tooltip'}">tooltip</span>
-        </div>
-        <div>
-          <span data-bind="popover:{title: 'test popover', content: 'うんたらかんたら'}">popover</span>
-        </div>
-        <div>
-          <input type="text" data-bind="datepicker:{}">
-        </div>
         <div>
           <span type="text" data-bind="highlight:'t,a'">adfhapoidsifhqrvnaeofdjna;sfjas;dhjfas;dtaa</span>
         </div>
-        <hr>
-        <h3>拡張方法</h3>
-        <p>たとえばjqueryのautocompleteを加えたいなどは以下のようにして下さい．</p>
-        <pre><code>jquery_extenders = ['datepicker', 'autocomplete']</code></pre>
       </section>
       <footer>
         <p>This project is maintained by <a href="https://github.com/nashibao">nashibao</a></p>
