@@ -7,13 +7,41 @@
 
   <link rel="stylesheet" href="stylesheets/styles.css">
   <link rel="stylesheet" href="stylesheets/pygment_trac.css">
-  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="lib/bootstrap/css/bootstrap-responsive.css">
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+
+
+    <!-- jquery -->
+    <script type="text/javascript", src="vendor/jquery/jquery.js"></script>
+    <!-- jquery-ui -->
+    <script type="text/javascript", src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="vendor/bootstrap/docs/assets/css/bootstrap.css">
+    <link rel="stylesheet" href="vendor/bootstrap/docs/assets/css/bootstrap-responsive.css">
+    <script src="vendor/bootstrap/docs/assets/js/bootstrap.js"></script>
+    <!-- bootstrap-select -->
+    <link rel="stylesheet" href="vendor/bootstrap-select/bootstrap-select.css">
+    <script src="vendor/bootstrap-select/bootstrap-select.js"></script>
+    <!-- pickadate -->
+    <link rel="stylesheet" href="vendor/pickadate/themes/pickadate.01.default.css">
+    <script src="vendor/pickadate/source/pickadate.js"></script>
+    <!-- knockout -->
+    <script src="vendor/knockout/build/output/knockout-latest.debug.js"></script>
+    <!-- extended handler -->
+    <script src="knockout-extends.js"></script>
+
+
+    <script src="lib/scale.fix.js"></script>
+    <script type="text/javascript">
+    function ViewModel(){};
+    $(document).ready(function(){
+      ko.applyBindings(new ViewModel());
+    })
+    </script>
+    
   </head>
   <body>
     <div class="wrapper">
@@ -41,18 +69,30 @@
         <pre><code>data-bind="ext:{hoge :{option: value}}"</code></pre>
         <p>となります．</p>
         <hr>
-        <h3>例</h3>
+        <h3>bootstrap-js</h3>
         <pre><code>data-bind="ext:{tooltip:{title: 'title'}}"
-data-bind="ext:{popover:{title: 'title', content: 'content'}}"
-data-bind="ext:{datepicker:{}}"</code></pre>
+data-bind="ext:{popover:{title: 'title', content: 'content'}}"</code></pre>
         <div>
           <span data-bind="ext:{tooltip:{title: 'title'}}">tooltip</span>
         </div>
         <div>
           <span data-bind="ext:{popover:{title: 'title', content: 'content'}}">popover</span>
         </div>
+        <h3>jquery-ui</h3>
+        <pre><code>data-bind="ext:{datepicker:{}}"</code></pre>
         <div>
           <input type="text" data-bind="ext:{datepicker:{}}">
+        </div>
+        <h3>pickadate</h3>
+        <pre><code>data-bind="ext:{pickadate:{}}"</code></pre>
+        <div>
+          <input type="text" data-bind="ext:{pickadate:{}}">
+        </div>
+        <h3>bootstrap-select</h3>
+        <pre><code>data-bind="ext:{selectpicker:{}}"</code></pre>
+        <div>
+          <select data-bind="ext:{selectpicker:{}}, options: [1,2,3]">
+          </select>
         </div>
         <hr>
         <h3>補足</h3>
@@ -69,18 +109,5 @@ data-bind="href:'http://www.google.com'"</code></pre>
         <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
       </footer>
     </div>
-
-
-    <script type="text/javascript", src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script type="text/javascript", src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
-    <script src="lib/scale.fix.js"></script>
-    <script src="lib/bootstrap/js/bootstrap.js"></script>
-    <script src="lib/knockout/knockout-latest.debug.js"></script>
-    <script src="knockout-extends.js"></script>
-    <script type="text/javascript">
-    function ViewModel(){};
-    ko.applyBindings(new ViewModel());
-    </script>
-    
   </body>
   </html>
